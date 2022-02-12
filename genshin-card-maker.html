@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact Card Maker</title>
+    <style>
+        @font-face {
+            src : url('./font/ja-jp.ttf') format('truetype');
+            font-family: 'ja-jp';
+        }
+        body{
+            background-image: url(./img/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-size: 24px; 
+        }
+        * {
+            font-family: 'ja-jp';      
+        }
+        form {
+            display: inline-block;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        fieldset {
+            border-radius: 2%;
+            backdrop-filter: blur(10px);
+        }
+        legend, legend h1{
+            font-size: 36px;
+            text-align: center;
+            color: silver;
+        }
+        .res {
+            display: none;
+        }
+        .res{
+            padding: 2%;
+            border: 5px;
+            border-style: groove;
+            border-radius: 2%;
+            backdrop-filter: blur(5px);
+        }
+        .res h1 {
+            text-align: center;
+            margin-top: 0%;
+        }
+        /*
+        form, table, fieldset{
+            text-align: center;
+            margin: auto;
+            height: auto;
+        }
+        fieldset {
+            width: fit-content;
+        }*/
+    </style>
+    <script src="../jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".submit").click(function(){
+                var favthing_res = [];
+                $.each($("input[name='favthing']:checked"), function(){
+                    favthing_res.push($(this).val());
+                });
+
+                $(".res").show();
+                $("#nickname_res").text($("#nickname").val());
+                $("#gender_res").text($(".gender").val());
+                $("#uid_res").text($("#uid").val());
+                $("#ar_res").text($("#ar").val());
+                $("#element_res").text($("#element").val());
+                $("#server_res").text($("#server").val());
+                $("#character_res").text($("#character").val());
+                $("#favthing_res").text((favthing_res.join(", ")));
+                $(".main").empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+        <form>
+            <fieldset>
+                <legend><h1>Genhsin Card Maker</h1></legend>
+                <table>
+                    <tr>
+                        <td><label for="nickname">Nickname</label></td>
+                        <td>: </td>
+                        <td><input type="text" name="nickname" id="nickname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">MC Gender</label></td>
+                        <td>: </td>
+                        <td><input type="radio" name="gender" class="gender" value="Aether">Aether</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><input type="radio" name="gender" class="gender" value="Lumine">Lumine</td>
+                    </tr>
+                    <tr>
+                        <td><label for="uid">UID</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="uid" id="uid"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="ar">Advanture Rank</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="ar" id="ar"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="element">Favorit Element</label></td>
+                        <td>:</td>
+                        <td>
+                            <select name="element" id="element" style="width: 100%;text-align: center;">
+                                <option value="none" selected disabled hidden>Select Your Fav Element</option>
+                                <option value="pyro">Pyro</option>
+                                <option value="cryo">Cryo</option>
+                                <option value="anemo">Anemo</option>
+                                <option value="geo">Geo</option>
+                                <option value="electro">Electro</option>
+                                <option value="dendro">Dendro</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="server">Server</label></td>
+                        <td>:</td>
+                        <td>
+                            <select name="server" id="server" style="width: 100%;text-align: center;">
+                                <option value="none" selected disabled hidden>Select Your Server</option>
+                                <option value="America">America</option>
+                                <option value="asia">Asia</option>
+                                <option value="Europe">Europe</option>
+                                <option value="cn">TW/HK/MO</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="character">Favorite Character</label></td>
+                        <td>:</td>
+                        <td><input type="text" name="character" id="character"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="favthing">Choose what you like</label></td>
+                        <td>:</td>
+                        <td>
+                            <input type="checkbox" name="favthing" id="music" class="favthing" value="Music">
+                            <label for="music">Music</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <input type="checkbox" name="favthing" id="artstyle" class="favthing" value="Art Style">
+                            <label for="artstyle">Art Style</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <input type="checkbox" name="favthing" id="exploration" class="favthing" value="Exploration">
+                            <label for="exploration">Exploration</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <input type="checkbox" name="favthing" id="lore" class="favthing" value="Lore">
+                            <label for="lore">Lore</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <input type="checkbox" name="favthing" id="fighting" class="favthing" value="Fighting">
+                            <label for="fighting">Fighting</label>
+                        </td>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center;">
+                            <button class="submit">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        <form class="res">
+            <h1>Genshin Card</h1>
+            <table>
+                <tr>
+                    <td>Nickname</td>
+                    <td>:</td>
+                    <td><p id="nickname_res"></p></td>
+                </tr>
+                <tr>
+                    <td>MC Gender</td>
+                    <td>:</td>
+                    <td id="gender_res"></td>
+                </tr>
+                <tr>
+                    <td>UID</td>
+                    <td>:</td>
+                    <td id="uid_res"></td>
+                </tr>
+                <tr>
+                    <td>Advanture Rank</td>
+                    <td>:</td>
+                    <td id="ar_res"></td>
+                </tr>
+                <tr>
+                    <td>Favorite Element</td>
+                    <td>:</td>
+                    <td id="element_res"></td>
+                </tr>
+                <tr>
+                    <td>Server</td>
+                    <td>:</td>
+                    <td id="server_res"></td>
+                </tr>
+                <tr>
+                    <td>Favorite Character</td>
+                    <td>:</td>
+                    <td id="character_res"></td>
+                </tr>
+                <tr>
+                    <td>The thing that you like</td>
+                    <td>:</td>
+                    <td id="favthing_res"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
