@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                var timeNow = $("#time").val();
+                
+                if (timeNow >= 6 && timeNow <= 8) {
+                    $("#result").text("Selamat Pagi")
+                } else if (timeNow >= 11 && timeNow <= 14){
+                    $("#result").text("Selamat Siang")
+                } else if (timeNow >= 15 && timeNow <= 17){
+                    $("#result").text("Selamat Sore")
+                } else if (timeNow >= 18 && timeNow <= 24){
+                    $("#result").text("Selamat Malam")
+                } else if (timeNow >= 1 && timeNow <= 5){
+                    $("#result").text("Selamat Tidur")
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><label for="time"></label>Masukan Waktu Sekarang</td>
+            <td>:</td>
+            <td><input type="number" id="time" name="time"></td>
+            <td><input type="button" value="Submit" id="submit"></td>
+        </tr>
+        <tr>
+            <td><p id="result"></p></td>
+        </tr>
+    </table>
+</body>
+</html>

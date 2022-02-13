@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                var totalSenin = [];
+                var totalSelasa = [];
+                var totalRabu = [];
+                var totalKamis = [];
+                var totalJumat = [];
+
+                for(var i=1;i<=$("#senin").val();i++){
+                    totalSenin += " X";
+                }
+                for(var j=1;j<=$("#selasa").val();j++){
+                    totalSelasa += " X";
+                }
+                for(var k=1;k<=$("#rabu").val();k++){
+                    totalRabu += " X";
+                }
+                for(var l=1;l<=$("#kamis").val();l++){
+                    totalKamis += " X";
+                }
+                for(var m=1;m<=$("#jumat").val();m++){
+                    totalJumat += " X";
+                }
+                $("#senin_res").text(totalSenin);
+                $("#selasa_res").text(totalSelasa);
+                $("#rabu_res").text(totalRabu);
+                $("#kamis_res").text(totalKamis);
+                $("#jumat_res").text(totalJumat);
+
+                $(".hasil").show();
+                $(".main").empty();
+                
+            })
+        })
+    </script>
+    <style>
+        .hasil {
+            display: none;
+        }
+        .res table{
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Murid yang masuk hari ini : </h1>
+    <div class="main">
+        <table>
+            <tr>
+                <td><label for="senin">Senin</label></td>
+                <td>:</td>
+                <td><input type="number" name="senin" id="senin"></td>
+            </tr>
+            <tr>
+                <td><label for="senin">Selasa</label></td>
+                <td>:</td>
+                <td><input type="number" name="selasa" id="selasa"></td>
+            </tr>
+            <tr>
+                <td><label for="senin">Rabu</label></td>
+                <td>:</td>
+                <td><input type="number" name="rabu" id="rabu"></td>
+            </tr>
+            <tr>
+                <td><label for="senin">Kamis</label></td>
+                <td>:</td>
+                <td><input type="number" name="kamis" id="kamis"></td>
+            </tr>
+            <tr>
+                <td><label for="senin">Jumat</label></td>
+                <td>:</td>
+                <td><input type="number" name="jumat" id="jumat"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="submit" id="submit"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="hasil">
+        <table>
+            <tr>
+                <td><p>Senin</p></td>
+                <td>:</td>
+                <td id="senin_res"></td>
+            </tr>
+            <tr>
+                <td><p>Selasa</p></td>
+                <td>:</td>
+                <td id="selasa_res"></td>
+            </tr>
+            <tr>
+                <td><p>Rabu</p></td>
+                <td>:</td>
+                <td id="rabu_res"></td>
+            </tr>
+            <tr>
+                <td><p>kamis</p></td>
+                <td>:</td>
+                <td id="kamis_res"></td>
+            </tr>
+            <tr>
+                <td><p>jumat</p></td>
+                <td>:</td>
+                <td id="jumat_res"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

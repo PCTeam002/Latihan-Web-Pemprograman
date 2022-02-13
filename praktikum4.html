@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                $("#result").text($("#text").val());
+                
+                switch(parseInt($("#size").val())){
+                    case 4: $("p").css("font-size", "4px"); break;
+                    case 12: $("p").css("font-size", "12px"); break;
+                    case 18: $("p").css("font-size", "18px"); break;
+                    case 22: $("p").css("font-size", "22px"); break;
+                    case 28: $("p").css("font-size", "28px"); break;
+                    case 32: $("p").css("font-size", "32px"); break;
+                    case 64: $("p").css("font-size", "64px"); break;
+                }
+                switch(parseInt($("#color").val())){                    
+                    case 1: $("p").css("color", "red"); break;
+                    case 2: $("p").css("color", "blue"); break;
+                    case 3: $("p").css("color", "yellow"); break;
+                    case 4: $("p").css("color", "black"); break;
+                    case 5: $("p").css("color", "#AAA"); break;                  
+                }
+            })
+        })
+    </script>
+    <style>
+    td {
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><label for="text">Text :</label></td>
+            <td><input type="text" name="text" id="text"></td>
+            <td><Label for="color">Color :</Label></td>
+            <td>
+                <select name="color" id="color">
+                    <option value="1">Red</option>
+                    <option value="2">Blue</option>
+                    <option value="3">Yellow</option>
+                    <option value="4">Black</option>
+                    <option value="5">Light Gray</option>
+                </select>
+            </td>
+            <td><label for="size">Size :</label></td>
+            <td>
+                <select name="size" id="size">
+                    <option value="4">4</option>
+                    <option value="12">12</option>
+                    <option value="18">18</option>
+                    <option value="22">22</option>
+                    <option value="28">28</option>
+                    <option value="32">32</option>
+                    <option value="64">64</option>
+                </select>
+            </td>
+            <td><button id="submit">Cetak</button></td>
+        </tr>
+        <tr><td colspan="7"><p id="result"></p></td></tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            background-color: #F2F2F2;
+            width: 100%;
+        }
+        .button:active {
+            background: #e5e5e5;
+            -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+            -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+        }
+        #result {
+            height: 4em;
+        }
+    </style>
+    <script src="../jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".button").click(function(){
+                $("#result").val($("#result").val() + $(this).val());
+            })
+            $("#buttonres").click(function(){
+                var result = $("#result").val();
+                $("#result").val(eval(result));
+            })
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4">
+                <input type="text" name="result" id="result" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" class="button"></td>
+            <td><input type="button" value="2" class="button"></td>
+            <td><input type="button" value="3" class="button"></td>
+            <td><input type="button" value="+" class="button"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" class="button"></td>
+            <td><input type="button" value="5" class="button"></td>
+            <td><input type="button" value="6" class="button"></td>
+            <td><input type="button" value="-" class="button"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" class="button"></td>
+            <td><input type="button" value="8" class="button"></td>
+            <td><input type="button" value="9" class="button"></td>
+            <td><input type="button" value="/" class="button"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" class="button"></td>
+            <td><input type="button" value="*" class="button"></td>
+            <td><input type="button" value="%" class="button"></td>
+            <td><input type="button" value="=" id="buttonres"></td>
+        </tr>
+    </table>
+</body>
+</html>
